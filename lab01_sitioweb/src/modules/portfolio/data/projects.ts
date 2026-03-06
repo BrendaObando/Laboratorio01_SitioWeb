@@ -8,6 +8,7 @@ export type Project = {
   liveUrl?: string
   githubUrl?: string
   videoUrl?: string
+  externalVideoUrl?: string
   role: string
 }
 
@@ -29,15 +30,15 @@ export const projects: Project[] = [
     description:
       "Prototipo funcional desarrollado con Arduino para simular el funcionamiento de una planta de tratamiento de aguas residuales mediante sensores, bombeo de agua y control electrónico.",
     fullDescription:
-      "Este proyecto consistió en el desarrollo de una maqueta funcional que simula el funcionamiento básico de una planta de tratamiento de aguas residuales. Fue desarrollado como parte del curso de Arquitectura de Computadoras con el objetivo de representar de forma práctica algunos procesos utilizados en sistemas reales de tratamiento de agua. Para su construcción se utilizó un microcontrolador Arduino junto con distintos componentes electrónicos, como sensores ultrasónicos para detectar niveles de agua, un motor de bombeo para simular el flujo del líquido, relés para el control de dispositivos eléctricos y luces LED para indicar el estado del sistema. Durante el proyecto se realizaron pruebas de integración de los componentes, así como la construcción de la estructura de la maqueta y la verificación del funcionamiento conjunto de todos los elementos. El resultado fue un prototipo didáctico que permite visualizar de forma sencilla el comportamiento de una mini planta de tratamiento de aguas residuales.",
-    image: "/PlantaTratamiento.png",
+      "Este proyecto consistió en el desarrollo de una maqueta funcional que simula el funcionamiento básico de una planta de tratamiento de aguas residuales. Fue desarrollado como parte del curso de Arquitectura de Computadoras con el objetivo de representar de forma práctica algunos procesos utilizados en sistemas reales de tratamiento de agua. Para su construcción se utilizó un microcontrolador Arduino junto con distintos componentes electrónicos, como sensores ultrasónicos para detectar niveles de agua, un motor de bombeo para simular el flujo del líquido, relés para el control de dispositivos eléctricos y luces LED para indicar el estado del sistema. Durante el proyecto se realizaron pruebas de integración de los componentes, así como la construcción de la estructura de la maqueta y la verificación del funcionamiento conjunto de todos los elementos.",
+    image: "/TratamientoAgua.jpg",
     technologies: ["Arduino",
     "Sensor Ultrasónico",
     "Motor de Bombeo de Agua",
     "Relay",
     "ProtoBoard",
     ],
-    videoUrl: "https://youtu.be/oby5HRS9V-8?si=62neSgODLMF0XH4d",
+    externalVideoUrl: "https://youtu.be/oby5HRS9V-8?si=62neSgODLMF0XH4d",
     role: "Hardware & Prototyping Developer",
   },
   {

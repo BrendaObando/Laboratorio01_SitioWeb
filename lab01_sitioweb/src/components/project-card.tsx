@@ -26,9 +26,19 @@ export function ProjectCard({ project }: ProjectCardProps) {
       {/* Project Image / Video */}
       <div className="relative h-48 sm:h-56 overflow-hidden bg-muted">
         {project.videoUrl ? (
-          <video className="absolute inset-0 h-full w-full object-cover" src={project.videoUrl} muted loop playsInline />
+          <video
+            className="absolute inset-0 h-full w-full object-cover"
+            src={project.videoUrl}
+            muted
+            loop
+            playsInline
+          />
         ) : (
-          <img className="absolute inset-0 h-full w-full object-cover" src={project.image} alt={project.title} />
+          <img
+            className="absolute inset-0 h-full w-full object-cover"
+            src={project.image}
+            alt={project.title}
+          />
         )}
 
         {/* Default gradient overlay when not hovered */}
@@ -67,9 +77,9 @@ export function ProjectCard({ project }: ProjectCardProps) {
               </a>
             </Button>
           )}
-          {project.videoUrl && (
+          {(project.videoUrl || project.externalVideoUrl) && (
             <Button size="sm" variant="secondary" asChild>
-              <a href={project.videoUrl} target="_blank" rel="noreferrer">
+              <a href={project.externalVideoUrl ?? project.videoUrl} target="_blank" rel="noreferrer">
                 <Play className="h-4 w-4 mr-1" />
                 Video
               </a>
