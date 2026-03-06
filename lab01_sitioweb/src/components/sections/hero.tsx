@@ -18,11 +18,11 @@ export function HeroSection() {
             <div className="space-y-2">
               <p className="text-sm font-medium text-primary uppercase tracking-wider">Bienvenido a mi portafolio</p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-balance">
-                Hola, soy <span className="text-primary">Juan Developer</span>
+                Hola, soy <span className="text-primary">Brenda Obando</span>
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed max-w-lg">
-                Estudiante de Ingeniería en Sistemas apasionado por crear experiencias web accesibles, modernas y
-                funcionales.
+                Estudiante de Ingeniería en Sistemas apasionada por transformar ideas en experiencias web modernas,
+                accesibles y funcionales mediante el uso de tecnologías actuales.
               </p>
             </div>
 
@@ -38,7 +38,7 @@ export function HeroSection() {
             {/* Social Links */}
             <div className="flex items-center gap-4 pt-4">
               <a
-                href="https://github.com"
+                href="https://github.com/BrendaObando"
                 target="_blank"
                 rel="noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -47,7 +47,7 @@ export function HeroSection() {
                 <Github className="h-6 w-6" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/brenda-obando-gómez-7b97a1267"
                 target="_blank"
                 rel="noreferrer"
                 className="text-muted-foreground hover:text-primary transition-colors"
@@ -56,7 +56,7 @@ export function HeroSection() {
                 <Linkedin className="h-6 w-6" />
               </a>
               <a
-                href="mailto:juan@example.com"
+                href="mailto:brenobandogo0805@gmail.com"
                 className="text-muted-foreground hover:text-primary transition-colors"
                 aria-label="Email"
               >
@@ -70,7 +70,7 @@ export function HeroSection() {
             <div className="relative">
               <div className="h-64 w-64 sm:h-80 sm:w-80 rounded-full bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center border-4 border-card">
                 <div className="h-56 w-56 sm:h-72 sm:w-72 rounded-full bg-card flex items-center justify-center">
-                  <span className="text-6xl sm:text-8xl font-bold text-primary">JD</span>
+                  <span className="text-6xl sm:text-8xl font-bold text-primary">BO</span>
                 </div>
               </div>
               {/* Decorative elements */}

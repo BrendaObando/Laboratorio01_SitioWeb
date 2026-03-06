@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useForm } from "@tanstack/react-form"
 import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -13,82 +14,28 @@ interface FormData {
   message: string
 }
 
-interface FormErrors {
-  name?: string
-  email?: string
-  subject?: string
-  message?: string
-}
-
 export function ContactSection() {
-  const [formData, setFormData] = useState<FormData>({
-    name: "",
-    email: "",
-    subject: "",
-    message: "",
-  })
-  const [errors, setErrors] = useState<FormErrors>({})
-  const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
 
-  // Form validation
-  const validateForm = (): boolean => {
-    const newErrors: FormErrors = {}
+  // TanStack Form configuration
+  const form = useForm({
+    defaultValues: {
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    },
+    onSubmit: async ({ value }) => {
+      // Simulate form submission
+      await new Promise((resolve) => setTimeout(resolve, 1500))
+      
+      setIsSubmitted(true)
+      form.reset()
 
-    if (!formData.name.trim()) {
-      newErrors.name = "El nombre es requerido"
-    } else if (formData.name.length < 2) {
-      newErrors.name = "El nombre debe tener al menos 2 caracteres"
-    }
-
-    if (!formData.email.trim()) {
-      newErrors.email = "El email es requerido"
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Ingresa un email válido"
-    }
-
-    if (!formData.subject.trim()) {
-      newErrors.subject = "El asunto es requerido"
-    }
-
-    if (!formData.message.trim()) {
-      newErrors.message = "El mensaje es requerido"
-    } else if (formData.message.length < 10) {
-      newErrors.message = "El mensaje debe tener al menos 10 caracteres"
-    }
-
-    setErrors(newErrors)
-    return Object.keys(newErrors).length === 0
-  }
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    if (!validateForm()) return
-
-    setIsSubmitting(true)
-    
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500))
-    
-    setIsSubmitting(false)
-    setIsSubmitted(true)
-    setFormData({ name: "", email: "", subject: "", message: "" })
-
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSubmitted(false), 5000)
-  }
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-    // Clear error when user starts typing
-    if (errors[name as keyof FormErrors]) {
-      setErrors((prev) => ({ ...prev, [name]: undefined }))
-    }
-  }
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSubmitted(false), 5000)
+    },
+  })
 
   return (
     <section id="contacto" className="py-20 bg-muted/30">
@@ -118,7 +65,7 @@ export function ContactSection() {
                         href="mailto:juan@example.com" 
                         className="font-medium hover:text-primary transition-colors"
                       >
-                        juan@example.com
+                        brenobandogo0805@gmail.com
                       </a>
                     </div>
                   </div>
@@ -129,10 +76,10 @@ export function ContactSection() {
                     <div>
                       <p className="text-sm text-muted-foreground">Teléfono</p>
                       <a 
-                        href="tel:+50688888888" 
+                        href="tel:+50687462594" 
                         className="font-medium hover:text-primary transition-colors"
                       >
-                        +506 8888-8888
+                        +506 8746-2594
                       </a>
                     </div>
                   </div>
@@ -142,7 +89,7 @@ export function ContactSection() {
                     </div>
                     <div>
                       <p className="text-sm text-muted-foreground">Ubicación</p>
-                      <p className="font-medium">San José, Costa Rica</p>
+                      <p className="font-medium">Nicoya, Guanacaste, Costa Rica</p>
                     </div>
                   </div>
                 </div>
@@ -153,8 +100,9 @@ export function ContactSection() {
               <CardContent className="p-6">
                 <h3 className="text-lg font-semibold mb-2">Disponibilidad</h3>
                 <p className="text-muted-foreground">
-                  Actualmente disponible para proyectos freelance y oportunidades 
-                  de práctica profesional. Respondo en menos de 24 horas.
+                Abierto a oportunidades de práctica profesional, colaboración en proyectos 
+                y desarrollo de soluciones web modernas. Siempre dispuesto a aprender, 
+                mejorar y aportar en equipos de tecnología.
                 </p>
               </CardContent>
             </Card>
@@ -172,91 +120,203 @@ export function ContactSection() {
                   </p>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Nombre</Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      placeholder="Tu nombre"
-                      className={errors.name ? "border-destructive" : ""}
-                    />
-                    {errors.name && (
-                      <p className="text-sm text-destructive flex items-center gap-1">
-                        <AlertCircle className="h-4 w-4" />
-                        {errors.name}
-                      </p>
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    form.handleSubmit()
+                  }}
+                  className="space-y-4"
+                >
+                  {/* Name Field */}
+                  <form.Field
+                    name="name"
+                    validators={{
+                      onChange: ({ value }) => {
+                        if (!value || value.trim().length === 0) {
+                          return "El nombre es requerido"
+                        }
+                        if (value.length < 2) {
+                          return "El nombre debe tener al menos 2 caracteres"
+                        }
+                        if (value.length > 50) {
+                          return "El nombre no puede exceder 50 caracteres"
+                        }
+                        if (!/^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/.test(value)) {
+                          return "El nombre solo puede contener letras"
+                        }
+                        return undefined
+                      },
+                      onChangeAsyncDebounceMs: 500,
+                    }}
+                    children={(field) => (
+                      <div className="space-y-2">
+                        <Label htmlFor="name">Nombre</Label>
+                        <Input
+                          id="name"
+                          name="name"
+                          value={field.state.value}
+                          onBlur={field.handleBlur}
+                          onChange={(e) => field.handleChange(e.target.value)}
+                          placeholder="Tu nombre completo"
+                          className={field.state.meta.errors.length > 0 ? "border-destructive" : ""}
+                        />
+                        {field.state.meta.errors.length > 0 && (
+                          <p className="text-sm text-destructive flex items-center gap-1">
+                            <AlertCircle className="h-4 w-4" />
+                            {field.state.meta.errors[0]}
+                          </p>
+                        )}
+                      </div>
                     )}
-                  </div>
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="tu@email.com"
-                      className={errors.email ? "border-destructive" : ""}
-                    />
-                    {errors.email && (
-                      <p className="text-sm text-destructive flex items-center gap-1">
-                        <AlertCircle className="h-4 w-4" />
-                        {errors.email}
-                      </p>
+                  {/* Email Field */}
+                  <form.Field
+                    name="email"
+                    validators={{
+                      onChange: ({ value }) => {
+                        if (!value || value.trim().length === 0) {
+                          return "El email es requerido"
+                        }
+                        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+                          return "Ingresa un email válido (ejemplo: usuario@dominio.com)"
+                        }
+                        if (value.length > 100) {
+                          return "El email no puede exceder 100 caracteres"
+                        }
+                        return undefined
+                      },
+                      onChangeAsyncDebounceMs: 500,
+                    }}
+                    children={(field) => (
+                      <div className="space-y-2">
+                        <Label htmlFor="email">Email</Label>
+                        <Input
+                          id="email"
+                          name="email"
+                          type="email"
+                          value={field.state.value}
+                          onBlur={field.handleBlur}
+                          onChange={(e) => field.handleChange(e.target.value)}
+                          placeholder="tu@email.com"
+                          className={field.state.meta.errors.length > 0 ? "border-destructive" : ""}
+                        />
+                        {field.state.meta.errors.length > 0 && (
+                          <p className="text-sm text-destructive flex items-center gap-1">
+                            <AlertCircle className="h-4 w-4" />
+                            {field.state.meta.errors[0]}
+                          </p>
+                        )}
+                      </div>
                     )}
-                  </div>
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="subject">Asunto</Label>
-                    <Input
-                      id="subject"
-                      name="subject"
-                      value={formData.subject}
-                      onChange={handleChange}
-                      placeholder="¿De qué quieres hablar?"
-                      className={errors.subject ? "border-destructive" : ""}
-                    />
-                    {errors.subject && (
-                      <p className="text-sm text-destructive flex items-center gap-1">
-                        <AlertCircle className="h-4 w-4" />
-                        {errors.subject}
-                      </p>
+                  {/* Subject Field */}
+                  <form.Field
+                    name="subject"
+                    validators={{
+                      onChange: ({ value }) => {
+                        if (!value || value.trim().length === 0) {
+                          return "El asunto es requerido"
+                        }
+                        if (value.length < 3) {
+                          return "El asunto debe tener al menos 3 caracteres"
+                        }
+                        if (value.length > 100) {
+                          return "El asunto no puede exceder 100 caracteres"
+                        }
+                        return undefined
+                      },
+                      onChangeAsyncDebounceMs: 500,
+                    }}
+                    children={(field) => (
+                      <div className="space-y-2">
+                        <Label htmlFor="subject">Asunto</Label>
+                        <Input
+                          id="subject"
+                          name="subject"
+                          value={field.state.value}
+                          onBlur={field.handleBlur}
+                          onChange={(e) => field.handleChange(e.target.value)}
+                          placeholder="¿De qué quieres hablar?"
+                          className={field.state.meta.errors.length > 0 ? "border-destructive" : ""}
+                        />
+                        {field.state.meta.errors.length > 0 && (
+                          <p className="text-sm text-destructive flex items-center gap-1">
+                            <AlertCircle className="h-4 w-4" />
+                            {field.state.meta.errors[0]}
+                          </p>
+                        )}
+                      </div>
                     )}
-                  </div>
+                  />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="message">Mensaje</Label>
-                    <Textarea
-                      id="message"
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      placeholder="Cuéntame sobre tu proyecto..."
-                      rows={4}
-                      className={errors.message ? "border-destructive" : ""}
-                    />
-                    {errors.message && (
-                      <p className="text-sm text-destructive flex items-center gap-1">
-                        <AlertCircle className="h-4 w-4" />
-                        {errors.message}
-                      </p>
+                  {/* Message Field */}
+                  <form.Field
+                    name="message"
+                    validators={{
+                      onChange: ({ value }) => {
+                        if (!value || value.trim().length === 0) {
+                          return "El mensaje es requerido"
+                        }
+                        if (value.length < 10) {
+                          return "El mensaje debe tener al menos 10 caracteres"
+                        }
+                        if (value.length > 500) {
+                          return "El mensaje no puede exceder 500 caracteres"
+                        }
+                        return undefined
+                      },
+                      onChangeAsyncDebounceMs: 500,
+                    }}
+                    children={(field) => (
+                      <div className="space-y-2">
+                        <Label htmlFor="message">
+                          Mensaje
+                          <span className="text-xs text-muted-foreground ml-2">
+                            ({field.state.value.length}/500)
+                          </span>
+                        </Label>
+                        <Textarea
+                          id="message"
+                          name="message"
+                          value={field.state.value}
+                          onBlur={field.handleBlur}
+                          onChange={(e) => field.handleChange(e.target.value)}
+                          placeholder="Cuéntame sobre tu proyecto..."
+                          rows={4}
+                          className={field.state.meta.errors.length > 0 ? "border-destructive" : ""}
+                        />
+                        {field.state.meta.errors.length > 0 && (
+                          <p className="text-sm text-destructive flex items-center gap-1">
+                            <AlertCircle className="h-4 w-4" />
+                            {field.state.meta.errors[0]}
+                          </p>
+                        )}
+                      </div>
                     )}
-                  </div>
+                  />
 
-                  <Button type="submit" className="w-full" disabled={isSubmitting}>
-                    {isSubmitting ? (
-                      "Enviando..."
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4 mr-2" />
-                        Enviar Mensaje
-                      </>
+                  <form.Subscribe
+                    selector={(state) => [state.canSubmit, state.isSubmitting]}
+                    children={([canSubmit, isSubmitting]) => (
+                      <Button 
+                        type="submit" 
+                        className="w-full" 
+                        disabled={!canSubmit || isSubmitting}
+                      >
+                        {isSubmitting ? (
+                          "Enviando..."
+                        ) : (
+                          <>
+                            <Send className="h-4 w-4 mr-2" />
+                            Enviar Mensaje
+                          </>
+                        )}
+                      </Button>
                     )}
-                  </Button>
+                  />
                 </form>
               )}
             </CardContent>

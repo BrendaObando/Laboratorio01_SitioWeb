@@ -3,17 +3,24 @@ import { Card, CardContent } from "@/components/ui/card"
 
 const educationData = [
   {
-    institution: "Universidad Técnica Nacional",
-    degree: "Bachillerato en Ingeniería en Sistemas",
-    period: "2022 - Presente",
-    location: "San José, Costa Rica",
+    institution: "Universidad Nacional de Costa Rica",
+    degree: "Diplomado en Ingeniería en Sistemas",
+    period: "2023 - Presente",
+    location: "Nicoya, Guanacaste, Costa Rica",
     description: "Enfoque en desarrollo de software, bases de datos y sistemas web.",
   },
   {
-    institution: "Colegio Técnico Profesional",
-    degree: "Técnico Medio en Informática",
-    period: "2018 - 2021",
-    location: "Heredia, Costa Rica",
+    institution: "Colegio Técnico Profesional de Corralillo",
+    degree: "Técnico Medio en ",
+    period: "2020 - 2022",
+    location: "Nicoya, Guanacaste, Costa Rica",
+    description: "Formación técnica en programación, redes y soporte técnico.",
+  },
+  {
+    institution: "Colegio Técnico Profesional de Corralillo",
+    degree: "Bachillerato en Educación Media",
+    period: "2017 - 2022",
+    location: "Nicoya, Guanacaste, Costa Rica",
     description: "Formación técnica en programación, redes y soporte técnico.",
   },
 ]

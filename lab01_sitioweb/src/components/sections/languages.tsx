@@ -10,15 +10,9 @@ const languagesData = [
   },
   {
     language: "Inglés",
-    level: "Avanzado (B2)",
-    percentage: 80,
-    flag: "🇺🇸",
-  },
-  {
-    language: "Portugués",
     level: "Básico (A2)",
-    percentage: 30,
-    flag: "🇧🇷",
+    percentage: 45,
+    flag: "🇺🇸",
   },
 ]
 

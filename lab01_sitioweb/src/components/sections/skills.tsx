@@ -5,32 +5,32 @@ const skillsData = [
   {
     category: "Frontend",
     icon: Layout,
-    skills: ["HTML5", "CSS3", "JavaScript", "React", "Next.js", "Tailwind CSS"],
+    skills: ["HTML5", "CSS3", "JavaScript", "React", "Typescript", "Tailwind CSS"],
   },
   {
     category: "Backend",
     icon: Server,
-    skills: ["Node.js", "Express", "Python", "Java", "REST APIs"],
+    skills: ["NestJS", "C#", ".NET", "REST APIs"],
   },
   {
     category: "Bases de Datos",
     icon: Database,
-    skills: ["MySQL", "PostgreSQL", "MongoDB", "Firebase"],
+    skills: ["MySQL", "SQLServer"],
   },
   {
     category: "Herramientas",
     icon: Wrench,
-    skills: ["Git", "GitHub", "VS Code", "Figma", "Postman"],
+    skills: ["Git", "GitHub", "VS Code", "Figma"],
   },
   {
     category: "Lenguajes",
     icon: Code,
-    skills: ["JavaScript", "TypeScript", "Python", "Java", "C++"],
+    skills: ["JavaScript", "TypeScript", "C#", "C++"],
   },
   {
     category: "DevOps",
     icon: Terminal,
-    skills: ["Linux", "Docker", "Vercel", "Netlify", "GitHub Actions"],
+    skills: ["Vercel"],
   },
 ]
 

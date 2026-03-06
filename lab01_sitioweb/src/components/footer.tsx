@@ -12,9 +12,9 @@ export function Footer() {
           <div className="flex items-center gap-2">
             <Link to="/" className="flex items-center gap-2">
               <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold">
-                JD
+                BO
               </div>
-              <span className="font-semibold">Juan Developer</span>
+              <span className="font-semibold">Brenda Obando</span>
             </Link>
             <span className="text-sm text-muted-foreground">
               © {currentYear} Todos los derechos reservados.
@@ -24,7 +24,7 @@ export function Footer() {
           {/* Social Links */}
           <div className="flex items-center gap-4">
             <a
-              href="https://github.com/usuario"
+              href="https://github.com/BrendaObando"
               target="_blank"
               rel="noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -33,7 +33,7 @@ export function Footer() {
               <Github className="h-5 w-5" />
             </a>
             <a
-              href="https://linkedin.com/in/usuario"
+              href="https://www.linkedin.com/in/brenda-obando-gómez-7b97a1267"
               target="_blank"
               rel="noreferrer"
               className="text-muted-foreground hover:text-foreground transition-colors"
@@ -42,18 +42,13 @@ export function Footer() {
               <Linkedin className="h-5 w-5" />
             </a>
             <a
-              href="mailto:correo@ejemplo.com"
+              href="mailto:brenobandogo0805@gmail.com"
               className="text-muted-foreground hover:text-foreground transition-colors"
               aria-label="Email"
             >
               <Mail className="h-5 w-5" />
             </a>
           </div>
-        </div>
-
-        {/* Made with love */}
-        <div className="mt-6 flex items-center justify-center text-sm text-muted-foreground">
-          Hecho con <Heart className="mx-1 h-4 w-4 text-red-500" /> en Costa Rica
         </div>
       </div>
     </footer>

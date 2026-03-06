@@ -4,31 +4,31 @@ import { Badge } from "@/components/ui/badge"
 
 const experienceData = [
   {
-    company: "Empresa Tech S.A.",
-    position: "Práctica Profesional - Desarrollador Web",
-    period: "Enero 2025 - Presente",
+    company: "ASADA San Pablo, Nandayure",
+    position: "Desarrollador Frontend",
+    period: "2025 - Presente",
     description:
-      "Desarrollo de aplicaciones web utilizando React y Node.js. Participación en proyectos de mejora de sistemas internos y mantenimiento de bases de datos.",
-    technologies: ["React", "Node.js", "PostgreSQL", "Git"],
-    type: "Práctica Profesional",
+      "Desarrollo de un sistema web para la gestión administrativa de la ASADA San Pablo de Nandayure, enfocado en el control de abonados, solicitudes, proyectos y generación de reportes. La plataforma busca digitalizar procesos y mejorar la eficiencia operativa.",
+    technologies: ["React", "NestJS", "MySql", "GitHub"],
+    type: "Proyecto Ingeniería",
   },
   {
-    company: "Universidad Técnica Nacional",
-    position: "Asistente de Laboratorio",
-    period: "Agosto 2024 - Diciembre 2024",
-    description:
-      "Apoyo en cursos de programación web, tutoría a estudiantes y mantenimiento de equipos del laboratorio de computación.",
-    technologies: ["HTML", "CSS", "JavaScript", "Python"],
-    type: "Asistencia",
-  },
-  {
-    company: "Proyecto Universitario",
+    company: "Municipalidad de Nicoya",
     position: "Desarrollador Full Stack",
-    period: "Marzo 2024 - Julio 2024",
+    period: "Agosto 2025 - Noviembre 2025",
     description:
-      "Desarrollo de un sistema de gestión de inventario para una pequeña empresa local como parte del curso de Ingeniería de Software.",
-    technologies: ["Next.js", "TypeScript", "MySQL", "Tailwind CSS"],
+      "Desarrollo de un sistema web como proyecto académico para la Municipalidad de Nicoya, enfocado en la organización y gestión de información institucional mediante una interfaz moderna y herramientas de desarrollo web actuales.",
+    technologies: ["React","C#", ".NET", "SQLServer", "GitHub"],
     type: "Proyecto Académico",
+  },
+  {
+    company: "Ebais de Nicoya",
+    position: "Práctica Profesional – Técnico en Informática",
+    period: "2022",
+    description:
+      "Práctica profesional realizada como parte del programa de Técnico Medio en Informática. Apoyo en tareas de soporte técnico, mantenimiento de equipos y asistencia en procesos tecnológicos de la organización.",
+    technologies: ["Mantenimiento de Equipos", "Windows"],
+    type: "Práctica Profesional",
   },
 ]
 

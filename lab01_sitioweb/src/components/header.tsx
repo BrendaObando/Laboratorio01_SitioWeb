@@ -22,9 +22,9 @@ export function Header() {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2" onClick={() => setMobileMenuOpen(false)}>
           <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-bold">
-            JD
+            BO
           </div>
-          <span className="hidden font-semibold sm:inline-block">Juan Developer</span>
+          <span className="hidden font-semibold sm:inline-block">Brenda Obando</span>
         </Link>
 
         {/* Desktop Navigation */}
