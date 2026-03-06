@@ -43,7 +43,7 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "RedSanPablo",
+    title: "Sistema Web RedSanPablo",
     description:
       "Sistema web desarrollado para la ASADA San Pablo que permite gestionar usuarios, proyectos, materiales, reportes y solicitudes de los abonados, además de ofrecer una página informativa para la comunidad.",
     fullDescription:

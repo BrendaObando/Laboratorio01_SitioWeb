@@ -10,7 +10,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ThemeProvider>
       <RouterProvider router={router} />
-      <TanStackRouterDevtools router={router} position="bottom-right" />
     </ThemeProvider>
   </React.StrictMode>
 )
