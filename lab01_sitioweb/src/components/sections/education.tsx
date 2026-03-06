@@ -4,24 +4,24 @@ import { Card, CardContent } from "@/components/ui/card"
 const educationData = [
   {
     institution: "Universidad Nacional de Costa Rica",
-    degree: "Diplomado en Ingeniería en Sistemas",
-    period: "2023 - Presente",
+    degree: "Diplomado en Programación de Aplicaciones Informáticas",
+    period: "2025",
     location: "Nicoya, Guanacaste, Costa Rica",
-    description: "Enfoque en desarrollo de software, bases de datos y sistemas web.",
+    description: "Formación universitaria orientada al desarrollo de aplicaciones informáticas, incluyendo programación, desarrollo web, bases de datos y principios de ingeniería de software.",
   },
   {
     institution: "Colegio Técnico Profesional de Corralillo",
-    degree: "Técnico Medio en ",
-    period: "2020 - 2022",
+    degree: "Técnico Medio en Informática Redes de Computadoras",
+    period: "2022",
     location: "Nicoya, Guanacaste, Costa Rica",
-    description: "Formación técnica en programación, redes y soporte técnico.",
+    description: "Formación técnica orientada a redes de computadoras, soporte técnico, mantenimiento de equipos y fundamentos de programación aplicados a entornos tecnológicos.",
   },
   {
     institution: "Colegio Técnico Profesional de Corralillo",
     degree: "Bachillerato en Educación Media",
-    period: "2017 - 2022",
+    period: "2022",
     location: "Nicoya, Guanacaste, Costa Rica",
-    description: "Formación técnica en programación, redes y soporte técnico.",
+    description: "Formación académica secundaria con énfasis en el desarrollo de habilidades analíticas, pensamiento crítico y bases para la educación superior.",
   },
 ]
 

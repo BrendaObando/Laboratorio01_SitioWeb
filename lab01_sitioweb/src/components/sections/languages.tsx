@@ -27,7 +27,7 @@ export function LanguagesSection() {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        <div className="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
           {languagesData.map((item, index) => (
             <Card 
               key={index} 
